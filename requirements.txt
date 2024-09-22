@@ -1,0 +1,6 @@
+Flask
+gunicorn
+ruamel.yaml
+pyqt5==5.12.3
+pyqtwebengine==5.12.1
+packaging==23.0
