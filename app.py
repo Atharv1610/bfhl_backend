@@ -1,20 +1,15 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import base64
-import os  # Import the os module
+import os
 
 app = Flask(__name__)
+CORS(app, resources={r"/bfhl": {"origins": "http://localhost:3000"}})  # Allow requests from your frontend
 
-# Root endpoint
-@app.route('/', methods=['GET'])
-def home():
-    return jsonify({"message": "Welcome to the API. Use /bfhl for operations."}), 200
-
-# GET request handler
 @app.route('/bfhl', methods=['GET'])
 def handle_get():
     return jsonify({"operation_code": 1}), 200
 
-# POST request handler
 @app.route('/bfhl', methods=['POST'])
 def handle_post():
     data = request.json.get('data', [])
