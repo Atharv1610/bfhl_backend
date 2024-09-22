@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import base64
+import os  # Import the os module
 
 app = Flask(__name__)
 
@@ -38,9 +39,9 @@ def handle_post():
 
     response = {
         "is_success": True,
-        "user_id": "atharv_aras_22092004",  # Use your name and dob
-        "email": "your_college_email@example.com",
-        "roll_number": "your_college_roll_number",
+        "user_id": "atharv_aras_22092004",
+        "email": "ad9694@srmist.edu.in",
+        "roll_number": "RA2111003010655",
         "numbers": numbers,
         "alphabets": alphabets,
         "highest_lowercase_alphabet": [highest_lowercase] if highest_lowercase else [],
@@ -52,4 +53,4 @@ def handle_post():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True)
