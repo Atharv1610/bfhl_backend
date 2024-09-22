@@ -4,6 +4,11 @@ import os  # Import the os module
 
 app = Flask(__name__)
 
+# Root endpoint
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to the API. Use /bfhl for operations."}), 200
+
 # GET request handler
 @app.route('/bfhl', methods=['GET'])
 def handle_get():
